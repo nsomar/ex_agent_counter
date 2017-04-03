@@ -7,12 +7,12 @@ defagent ExagentCounter do
     !count
   end
 
-  rule (+!count) when counter(0) do
+  rule(+!count when counter(0)) do
     &print("Done!")
     &exit
   end
 
-  rule (+!count) when counter(X) do
+  rule(+!count when counter(X)) do
     -+counter(X - 1)
     &print("Counter Value #{X}")
     !count
